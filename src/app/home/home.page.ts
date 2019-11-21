@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  private user: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
+  openChat(){
+    this.router.navigate(['chat'], {
+      queryParams: { 'user': this.user } 
+  });
+  }
 }

@@ -8,11 +8,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+
+const socketConfig: SocketIoConfig = {
+  url: 'https://socket-io-chat-api.herokuapp.com/'
+}
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SocketIoModule.forRoot(socketConfig)],
   providers: [
     StatusBar,
     SplashScreen,
